@@ -18,7 +18,7 @@ namespace Proyecto
             InitializeComponent();
 
             MainPage = new MasterPage();
-
+            //
             //MainPage = new Proyecto.Pages.MainPage();
         }
 
