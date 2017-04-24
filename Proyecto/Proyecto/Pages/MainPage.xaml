@@ -13,8 +13,8 @@
 
     <StackLayout>
         
-        <SearchBar x:Name="MainSearchBar"
-                   Placeholder="Search"></SearchBar>
+        <!--<SearchBar x:Name="MainSearchBar"
+                   Placeholder="Search"></SearchBar>-->
 
         <ListView
             ItemTemplate="{StaticResource GeolocationItemTemplate}"
