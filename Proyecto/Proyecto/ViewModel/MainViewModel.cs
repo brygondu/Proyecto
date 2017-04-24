@@ -10,12 +10,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Proyecto.ViewModel
 {
-    public class MainViewModel
+    public class MainViewModel : INotifyPropertyChanged
     {
         public GeolocationViewModel GeoModel { get; set; }
+
 
         NavigationService navigationService;
         ApiService apiService;
@@ -27,11 +29,18 @@ namespace Proyecto.ViewModel
 
             Geolocations = new ObservableCollection<GeolocationViewModel>();
 
+            //_refreshCommand = new Command(RefreshListView);
+
             //GeolocationsSpecific = new ObservableCollection<GeolocationViewModel>();
 
             LoadMenu();
             LoadData();
         }
+
+        //async void RefreshListView()
+        //{
+        //    LoadData();
+        //}
 
         public ObservableCollection<MenuItemViewModel> Menu { get; set; }
         public ObservableCollection<GeolocationViewModel> Geolocations { get; set; }
@@ -73,15 +82,15 @@ namespace Proyecto.ViewModel
             Menu.Add(new MenuItemViewModel()
             {
                 Icon = "icon",
-                Title = "Pagina de Geolocalizacion",
-                PageName = "Geolocations"
+                Title = "Nueva Geolocalización",
+                PageName = "NewGeolocationPage"
             });
 
             Menu.Add(new MenuItemViewModel()
             {
                 Icon = "icon",
-                Title = "Prueba 1",
-                PageName = "Prueba1"
+                Title = "Acerca de",
+                PageName = "Acerca_de"
             });
         }
 
@@ -122,7 +131,46 @@ namespace Proyecto.ViewModel
         }
 
 
-        
+        private bool _isRefreshing;
+        public bool IsRefreshing
+        {
+            get { return _isRefreshing; }
+            set
+            {
+                if (_isRefreshing == value)
+                    return;
+
+                _isRefreshing = value;
+                OnPropertyChanged("IsRefreshing");
+            }
+        }
+
+        public ICommand RefreshCommand
+        {
+            get { return new RelayCommand(RefreshLV); }
+        }
+
+        private async void RefreshLV()
+        {
+
+            IsRefreshing = true;
+
+            LoadData();
+
+            IsRefreshing = false;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
+        public void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged == null)
+                return;
+
+            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+
 
 
         //private async void LoadSpecificData()

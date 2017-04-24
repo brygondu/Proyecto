@@ -19,7 +19,10 @@
         <ListView
             ItemTemplate="{StaticResource GeolocationItemTemplate}"
             ItemsSource="{Binding Geolocations}"
-            HasUnevenRows="True">
+            HasUnevenRows="True"
+            IsPullToRefreshEnabled="True"
+            RefreshCommand="{Binding RefreshCommand}"
+            IsRefreshing="{Binding IsRefreshing}">
         </ListView>
     </StackLayout>
     

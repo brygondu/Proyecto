@@ -20,8 +20,12 @@ namespace Proyecto.Services
                 case "MainPage":
                     await App.Navigator.PopToRootAsync();
                     break;
-                case "Prueba1":
-                    await Navigate(new Prueba_1());
+                case "NewGeolocationPage":
+                    await Navigate(new NewGeolocationPage());
+                    //await App.Navigator.PushAsync(new Prueba_1());
+                    break;
+                case "Acerca_de":
+                    await Navigate(new Acerca_de());
                     //await App.Navigator.PushAsync(new Prueba_1());
                     break;
                 default:
@@ -31,7 +35,7 @@ namespace Proyecto.Services
 
         private static async Task Navigate<T>(T page) where T : Page
         {
-            NavigationPage.SetHasBackButton(page, false);
+            NavigationPage.SetHasBackButton(page, true);
             NavigationPage.SetBackButtonTitle(page, "Atrás");
 
             await App.Navigator.PushAsync(page);

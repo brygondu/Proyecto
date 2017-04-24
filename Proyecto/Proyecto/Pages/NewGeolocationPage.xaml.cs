@@ -15,6 +15,13 @@ namespace Proyecto.Pages
         public NewGeolocationPage()
         {
             InitializeComponent();
+
+            title.Text = "";
+            description.Text = "";
+            latitud.Text = "";
+            longitud.Text = "";
+            datePicker.Date = DateTime.Today;
+
         }
     }
 }

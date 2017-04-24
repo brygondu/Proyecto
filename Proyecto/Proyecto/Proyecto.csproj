@@ -52,8 +52,8 @@
     <Compile Include="Pages\NewGeolocationPage.xaml.cs">
       <DependentUpon>NewGeolocationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Prueba_1.xaml.cs">
-      <DependentUpon>Prueba_1.xaml</DependentUpon>
+    <Compile Include="Pages\Acerca_de.xaml.cs">
+      <DependentUpon>Acerca_de.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ApiService.cs" />
@@ -122,7 +122,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\Prueba_1.xaml">
+    <EmbeddedResource Include="Pages\Acerca_de.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

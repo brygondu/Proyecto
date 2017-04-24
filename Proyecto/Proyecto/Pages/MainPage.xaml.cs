@@ -20,7 +20,6 @@ namespace Proyecto.Pages
 
             InitializeComponent();
 
-            
         }
 
         //private void MainSearchBar_SearchButtonPressed(object sender, EventArgs e)

@@ -12,7 +12,6 @@ namespace Proyecto.ViewModel
 {
     public class GeolocationViewModel
     {
-
         ApiService apiService;
         DialogService dialogService;
 
@@ -58,6 +57,9 @@ namespace Proyecto.ViewModel
                 });
 
                 await dialogService.ShowMessage("El pedido ha sido creado.", "Informacion");
+
+                await App.Navigator.PopToRootAsync();
+
             }
             catch
             {

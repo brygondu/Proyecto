@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Proyecto.Pages
 {
     //[XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Prueba_1 : ContentPage
+    public partial class Acerca_de : ContentPage
     {
-        public Prueba_1()
+        public Acerca_de()
         {
             InitializeComponent();
         }
