@@ -11,46 +11,22 @@
            TextColor="{StaticResource FontColor}"
            VerticalOptions="Center" HorizontalOptions="Center" />-->
 
-    <ListView
-        ItemsSource="{Binding Geolocations}"
-        HasUnevenRows="True">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Image WidthRequest="50" HeightRequest="50" VerticalOptions="Start"
-                               Source="icon.png"></Image>
-                        <StackLayout Grid.Column="1">
-                            
-                            <Label FontAttributes="Bold"
-                                   VerticalOptions="Center"
-                                   TextColor="{StaticResource FontColor}"
-                                   Text="{Binding Title}"></Label>
-
-                            <Label VerticalOptions="Center"
-                                   TextColor="{StaticResource FontColor}"
-                                   Text="{Binding Description}"></Label>
-
-                            <Label VerticalOptions="Center"
-                                   TextColor="{StaticResource MainColor}"
-                                   Text="{Binding CreationDate, StringFormat='dd/MM/yyyy'}"></Label>
-
-                            <Label VerticalOptions="Center"
-                                   TextColor="{StaticResource FontColor}"
-                                   Text="{Binding Coordinates}"></Label>
-
-                        </StackLayout>
-                    </Grid>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
+    <StackLayout>
         
-    </ListView>
+        <SearchBar x:Name="MainSearchBar"
+                   Placeholder="Search"></SearchBar>
+
+        <ListView
+            ItemTemplate="{StaticResource GeolocationItemTemplate}"
+            ItemsSource="{Binding Geolocations}"
+            HasUnevenRows="True">
+        </ListView>
+    </StackLayout>
     
+    
+    
+
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Icon="icon.png" Command="{Binding GoToCommand}" CommandParameter="NewGeolocationPage">
         </ToolbarItem>

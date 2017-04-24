@@ -6,31 +6,48 @@
              Title="Nuevo Lugar"
              BindingContext="{Binding Main, Source={StaticResource Locator}}">
 
-    <ScrollView>
+    <ScrollView BindingContext="{Binding NewGeolocation}">
         <StackLayout Padding="8">
             <Label TextColor="{StaticResource FontColor}"
                    Text="Titulo"></Label>
             
             <Entry TextColor="{StaticResource FontColor}"
+                   Text="{Binding Title, Mode=TwoWay}"
                    BackgroundColor="White"></Entry>
 
             <Label TextColor="{StaticResource FontColor}"
                    Text="Descripcion"></Label>
 
             <Editor TextColor="{StaticResource FontColor}"
+                    Text="{Binding Description, Mode=TwoWay}"
                     BackgroundColor="White"></Editor>
+
+            <Label TextColor="{StaticResource FontColor}"
+                   Text="Latitud"></Label>
+
+            <Entry TextColor="{StaticResource FontColor}"
+                   Text="{Binding Latitud, Mode=TwoWay}"
+                   BackgroundColor="White"></Entry>
+
+            <Label TextColor="{StaticResource FontColor}"
+                   Text="Longitud"></Label>
+
+            <Entry TextColor="{StaticResource FontColor}"
+                   Text="{Binding Longitud, Mode=TwoWay}"
+                   BackgroundColor="White"></Entry>
 
             <Label TextColor="{StaticResource FontColor}"
                    Text="Fecha Creacion"></Label>
 
             <DatePicker
-                BackgroundColor="White"></DatePicker>
+                Date="{Binding FechaCreacion, Mode=TwoWay}"
+                BackgroundColor="White">
+                <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+            </DatePicker>
 
-            <Button HeightRequest="50"
-                    BorderRadius="25"
-                    BackgroundColor="{StaticResource MainColor}"
-                    TextColor="{StaticResource MenuFontColor}"
-                    Text="Guardar"></Button>
+            <Button
+                Command="{Binding SaveCommand}"
+                Text="Guardar"></Button>
             
         </StackLayout>
     </ScrollView>

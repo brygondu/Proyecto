@@ -10,6 +10,11 @@ using Android.OS;
 namespace Proyecto.Droid
 {
     [Activity(Label = "Proyecto", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+
+    
+
+    //Theme = "@android:style/Theme.Material.Light.DarkActionBar",
+
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)

@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using Proyecto.Pages;
+using Proyecto.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,12 @@ namespace Proyecto.ViewModel
 {
     public class MenuItemViewModel
     {
+        NavigationService navigationService;
+
+        public MenuItemViewModel()
+        {
+            navigationService = new NavigationService();
+        }
 
         public string Icon { get; set; }
 
@@ -21,25 +28,7 @@ namespace Proyecto.ViewModel
 
         public ICommand NavigateCommand
         {
-            get { return new RelayCommand(Navigate); }
-        }
-
-        private void Navigate()
-        {
-            App.Master.IsPresented = false;
-            switch (PageName)
-            {
-
-                case "MainPage":
-                    App.Navigator.PopToRootAsync();
-                    App.Navigator.PushAsync(new MainPage());
-                    break;
-                case "Prueba1":
-                    App.Navigator.PushAsync(new Prueba_1());
-                    break;
-                default:
-                    break;
-            }
+            get { return new RelayCommand(() => navigationService.Navigate(PageName)); }
         }
 
     }
