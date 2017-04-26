@@ -63,6 +63,10 @@ namespace Proyecto.ViewModel
                     NewGeolocation = new GeolocationViewModel();
                     App.Navigator.PushAsync(new NewGeolocationPage());
                     break;
+                //case "GeolocationDetailPage":
+                //    NewGeolocation = new GeolocationViewModel();
+                //    App.Navigator.PushAsync(new GeolocationDetailPage());
+                //    break;
                 default:
                     break;
             }
@@ -109,7 +113,9 @@ namespace Proyecto.ViewModel
                     Description = item.Description,
                     Latitud = item.Latitud,
                     Longitud = item.Longitud,
-                    FechaCreacion = item.FechaCreacion
+                    FechaCreacion = item.FechaCreacion,
+                    BrowseCommand = new Command<GeolocationViewModel>(GeoBinding)
+
                 });
             }
 
@@ -130,6 +136,18 @@ namespace Proyecto.ViewModel
             //}
         }
 
+
+        private void GeoBinding(GeolocationViewModel obj)
+        {
+            NewGeolocation = new GeolocationViewModel();
+            NewGeolocation.Title = obj.Title;
+            NewGeolocation.Description = obj.Description;
+            NewGeolocation.Latitud = obj.Latitud;
+            NewGeolocation.Longitud = obj.Longitud;
+            NewGeolocation.FechaCreacion = obj.FechaCreacion;
+            App.Navigator.PushAsync(new NewGeolocationPage());
+        }
+        //App.Navigator.PushAsync(new GeolocationDetailPage());
 
         private bool _isRefreshing;
         public bool IsRefreshing
@@ -171,6 +189,52 @@ namespace Proyecto.ViewModel
             PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
 
+
+
+
+
+
+        //public ICommand SearchCommand
+        //{
+        //    get { return new RelayCommand(SearchCM); }
+        //}
+
+        //private async void SearchCM()
+        //{
+
+
+
+        //    var myListView = new ListView();
+
+        //    myListView.ItemsSource = from Geolocations. where this.Geolocations
+
+        //    Geolocations.Clear();
+
+        //    foreach (var item in list)
+        //    {
+        //        Geolocations.Add(new GeolocationViewModel()
+        //        {
+        //            Title = item.Title,
+        //            Description = item.Description,
+        //            Latitud = item.Latitud,
+        //            Longitud = item.Longitud,
+        //            FechaCreacion = item.FechaCreacion
+        //        });
+        //    }
+
+        //}
+
+
+
+        //public ICommand PassDetailGeoPage
+        //{
+        //    get { return new RelayCommand(passDetailGeoPage); }
+        //}
+
+        //private async void passDetailGeoPage()
+        //{
+        //    await App.Navigator.PushAsync(new GeolocationDetailPage());
+        //}
 
 
         //private async void LoadSpecificData()

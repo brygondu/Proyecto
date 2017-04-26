@@ -16,7 +16,7 @@
         <!--<SearchBar x:Name="MainSearchBar"
                    Placeholder="Search"></SearchBar>-->
 
-        <ListView
+        <ListView x:Name="List"
             ItemTemplate="{StaticResource GeolocationItemTemplate}"
             ItemsSource="{Binding Geolocations}"
             HasUnevenRows="True"

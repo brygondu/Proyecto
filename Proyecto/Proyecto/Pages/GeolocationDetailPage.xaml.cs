@@ -10,18 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace Proyecto.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NewGeolocationPage : ContentPage
+    public partial class GeolocationDetailPage : ContentPage
     {
-        public NewGeolocationPage()
+        public GeolocationDetailPage()
         {
             InitializeComponent();
-
-            //title.Text = "";
-            //description.Text = "";
-            //latitud.Text = "";
-            //longitud.Text = "";
-            //datePicker.Date = DateTime.Today;
-
         }
     }
 }

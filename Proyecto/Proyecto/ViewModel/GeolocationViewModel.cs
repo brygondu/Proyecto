@@ -34,7 +34,7 @@ namespace Proyecto.ViewModel
 
         public string Longitud { get; set; }
 
-        
+        public ICommand BrowseCommand { get; set; }
 
         public ICommand SaveCommand
         {

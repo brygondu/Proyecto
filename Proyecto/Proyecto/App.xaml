@@ -43,7 +43,7 @@
                 <!--<SearchBar x:Name="MainSearchBar"></SearchBar>-->
 
                 <ViewCell>
-                    <Grid>
+                    <Grid Padding="8">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -73,6 +73,12 @@
                                    Text="{Binding Longitud}"></Label>
 
                         </StackLayout>
+                        
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BrowseCommand}"
+                                                  CommandParameter="{Binding}"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                        
                     </Grid>
                 </ViewCell>
             </DataTemplate>

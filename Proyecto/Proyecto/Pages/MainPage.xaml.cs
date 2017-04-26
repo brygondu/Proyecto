@@ -18,7 +18,23 @@ namespace Proyecto.Pages
         {
             //Results = new ObservableCollection<GeolocationViewModel>();
 
+
+
             InitializeComponent();
+
+            //List.ItemTapped += (sender, e) => {
+            //    var viewModel = ((ListView)sender).BindingContext as MainViewModel;
+
+            //    if (viewModel != null && viewModel.BrowseCommand != null)
+            //    {
+            //        viewModel.BrowseCommand.Execute(((ListView)sender).BindingContext);
+            //    }
+            //};
+
+        }
+
+        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
 
         }
 
